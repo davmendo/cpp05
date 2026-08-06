@@ -1,0 +1,8 @@
+# Objetos e binario (NAME = Bureaucrat, sem extensao)
+*.o
+/Bureaucrat
+
+# Depuracao
+*.dSYM/
+vgcore.*
+.DS_Store
