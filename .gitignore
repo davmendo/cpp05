@@ -1,6 +1,6 @@
-# Objetos e binario (NAME = Bureaucrat, sem extensao)
+# Objetos e binarios dos exercicios (nomes sem extensao)
 *.o
-/Bureaucrat
+Bureaucrat
 
 # Depuracao
 *.dSYM/
