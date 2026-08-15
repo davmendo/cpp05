@@ -1,6 +1,12 @@
 # Objetos e binarios dos exercicios (nomes sem extensao)
 *.o
 Bureaucrat
+Form
+Forms
+Intern
+
+# Saida gerada pelo ShrubberyCreationForm
+*_shrubbery
 
 # Depuracao
 *.dSYM/

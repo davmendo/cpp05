@@ -5,54 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 14:29:20 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/06 15:01:15 by davmendo         ###   ########.fr       */
+/*   Created: 2026/08/06 14:03:17 by davmendo          #+#    #+#             */
+/*   Updated: 2026/08/06 15:11:29 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-# include <iostream>
-# include <ostream>
-# include <stdexcept>
-# include <string>
 # include <exception>
+# include <iostream>
+# include <string>
 
-class Bureaucrat 
+/*
+** Um burocrata tem um nome imutável e uma classificação que vai de 1 (a mais
+** alta) até 150 (a mais baixa). Promover um burocrata diminui o número da
+** classificação; rebaixar aumenta.
+*/
+class Bureaucrat
 {
-    /* 
-    **  A bureaucrat should have:
-    **  A constant name
-    **  A ranking ranging from 1 to 150 
-    */
-    private:
-        const std::string   _name;
-        int                 _grade;
+	public:
+		static const int	highestGrade;
+		static const int	lowestGrade;
 
-    public:
-        Bureaucrat();
-        Bureaucrat(const std::string& name, int grade);
-        Bureaucrat(const Bureaucrat& other);
-        Bureaucrat& operator=(const Bureaucrat& other);
-        ~Bureaucrat();
+		Bureaucrat(void);
+		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const Bureaucrat &other);
+		~Bureaucrat(void);
 
-        std::string getName() const;
-        int     getGrade() const;
-        void    incrementGrade();
-        void    decrementGrade();
+		Bureaucrat	&operator=(const Bureaucrat &other);
 
-        class GradeTooHighException : public std::exception {
-            public:
-                const char* what() const throw();
-        };
+		const std::string	&getName(void) const;
+		int					getGrade(void) const;
 
-        class GradeTooLowException : public std::exception {
-            public:
-                const char* what() const throw();
-        };
-    };
+		void	incrementGrade(void);
+		void	decrementGrade(void);
 
-    std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+
+	private:
+		static void	checkGrade(int grade);
+
+		const std::string	_name;
+		int					_grade;
+};
+
+std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
 #endif

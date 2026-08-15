@@ -5,52 +5,97 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 14:40:22 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/06 15:02:46 by davmendo         ###   ########.fr       */
+/*   Created: 2026/08/06 14:38:02 by davmendo          #+#    #+#             */
+/*   Updated: 2026/08/10 09:20:38 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main() {
-    try
-    {
-        Bureaucrat bureaucrat1("Alice", 1);
-        std::cout << bureaucrat1 << std::endl;
+static void	showTitle(const std::string &title)
+{
+	std::cout << std::endl << "===== " << title << " =====" << std::endl;
+}
 
-        Bureaucrat bureaucrat2("Bob", 150);
-        std::cout << bureaucrat2 << std::endl;
+static void	hire(const std::string &name, int grade)
+{
+	try
+	{
+		Bureaucrat	bureaucrat(name, grade);
 
-        // This will throw a GradeTooHighException
-        Bureaucrat bureaucrat3("Charlie", 0);
-    } 
-    catch (const std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-    try
-    {
-        // This will throw a GradeTooLowException
-        Bureaucrat bureaucrat4("David", 151);
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-    try
-    {
-        Bureaucrat bureaucrat5("Eve", 75);
-        std::cout << bureaucrat5 << std::endl;
+		std::cout << "hired -> " << bureaucrat << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "refused -> " << name << ": " << e.what() << "."
+			<< std::endl;
+	}
+}
 
-        bureaucrat5.incrementGrade();
-        std::cout << "After increment: " << bureaucrat5 << std::endl;
+static void	promote(Bureaucrat &bureaucrat)
+{
+	try
+	{
+		bureaucrat.incrementGrade();
+		std::cout << "promoted -> " << bureaucrat << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "promotion denied -> " << bureaucrat.getName() << ": "
+			<< e.what() << "." << std::endl;
+	}
+}
 
-        bureaucrat5.decrementGrade();
-        std::cout << "After decrement: " << bureaucrat5 << std::endl;
-    } 
-    catch (const std::exception& e) 
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-    return 0;
+static void	demote(Bureaucrat &bureaucrat)
+{
+	try
+	{
+		bureaucrat.decrementGrade();
+		std::cout << "demoted -> " << bureaucrat << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "demotion denied -> " << bureaucrat.getName() << ": "
+			<< e.what() << "." << std::endl;
+	}
+}
+
+int	main(void)
+{
+	showTitle("Construction inside and outside the limits");
+	hire("Amelia", Bureaucrat::highestGrade);
+	hire("Bento", Bureaucrat::lowestGrade);
+	hire("Celia", 42);
+	hire("Dinis", 0);
+	hire("Eunice", 151);
+	hire("Fabio", -7);
+
+	showTitle("Promotions and demotions");
+	Bureaucrat	clerk("Celia", 3);
+
+	std::cout << "initial -> " << clerk << std::endl;
+	promote(clerk);
+	promote(clerk);
+	demote(clerk);
+
+	showTitle("Hitting both ends of the range");
+	Bureaucrat	director("Amelia", Bureaucrat::highestGrade);
+	Bureaucrat	trainee("Bento", Bureaucrat::lowestGrade);
+
+	promote(director);
+	demote(trainee);
+
+	showTitle("Orthodox canonical form");
+	Bureaucrat	original("Gustavo", 77);
+	Bureaucrat	copied(original);
+	Bureaucrat	assigned;
+
+	assigned = original;
+	std::cout << "original -> " << original << std::endl;
+	std::cout << "copy     -> " << copied << std::endl;
+	std::cout << "assigned -> " << assigned << std::endl;
+	std::cout << "the name is constant, so assignment only copies the grade"
+		<< std::endl;
+
+	return (0);
 }
