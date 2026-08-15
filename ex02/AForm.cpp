@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 09:16:47 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 10:11:09 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:23:42 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,13 @@ AForm::AForm(void)
 {
 }
 
-AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign),
-	  _gradeToExecute(gradeToExecute)
+AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	checkGrade(gradeToSign);
 	checkGrade(gradeToExecute);
 }
 
-AForm::AForm(const AForm &other)
-	: _name(other._name), _isSigned(other._isSigned),
-	  _gradeToSign(other._gradeToSign),
-	  _gradeToExecute(other._gradeToExecute)
+AForm::AForm(const AForm &other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
 }
 

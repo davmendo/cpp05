@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 08:47:39 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 10:03:41 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:20:01 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 const int	Bureaucrat::highestGrade = 1;
 const int	Bureaucrat::lowestGrade = 150;
 
-Bureaucrat::Bureaucrat(void) : _name("Anonymous"), _grade(lowestGrade)
+Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(lowestGrade)
 {
 }
 

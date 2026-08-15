@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 10:18:49 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 09:39:52 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:22:52 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,17 @@
 const int	Form::highestGrade = 1;
 const int	Form::lowestGrade = 150;
 
-Form::Form(void)
-	: _name("untitled"), _isSigned(false), _gradeToSign(lowestGrade),
-	  _gradeToExecute(lowestGrade)
+Form::Form(void) : _name("untitled"), _isSigned(false), _gradeToSign(lowestGrade), _gradeToExecute(lowestGrade)
 {
 }
 
-Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign),
-	  _gradeToExecute(gradeToExecute)
+Form::Form(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	checkGrade(gradeToSign);
 	checkGrade(gradeToExecute);
 }
 
-Form::Form(const Form &other)
-	: _name(other._name), _isSigned(other._isSigned),
-	  _gradeToSign(other._gradeToSign),
-	  _gradeToExecute(other._gradeToExecute)
+Form::Form(const Form &other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
 }
 

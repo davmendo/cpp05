@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 09:41:06 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 09:31:17 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:24:38 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 const int	Bureaucrat::highestGrade = 1;
 const int	Bureaucrat::lowestGrade = 150;
 
-Bureaucrat::Bureaucrat(void) : _name("Anonymous"), _grade(lowestGrade)
+Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(lowestGrade)
 {
 }
 
@@ -26,8 +26,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade)
 	checkGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
-	: _name(other._name), _grade(other._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
 }
 
@@ -80,8 +79,7 @@ void	Bureaucrat::signForm(Form &form) const
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << _name << " couldn't sign " << form.getName()
-			<< " because " << e.what() << "." << std::endl;
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
 
@@ -109,7 +107,6 @@ const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade "
-		<< bureaucrat.getGrade() << ".";
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return (out);
 }

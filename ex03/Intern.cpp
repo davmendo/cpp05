@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 13:01:04 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 11:43:15 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:33:49 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,17 @@
 #include "ShrubberyCreationForm.hpp"
 
 /*
-** Cada entrada do catálogo liga um nome de formulário à função que sabe
-** construí-lo. Assim makeForm() é uma única busca na tabela, e acrescentar um
-** formulário novo custa apenas mais uma linha aqui embaixo.
+** O catálogo: cada nome de formulário apontando para a função membro que sabe
+** construí-lo. Acrescentar um formulário novo custa apenas mais uma linha.
 */
-struct FormBlueprint
-{
-	const char	*name;
-	AForm		*(*build)(const std::string &target);
+const Intern::FormBlueprint	Intern::_catalog[] = {
+	{"shrubbery creation", &Intern::buildShrubbery},
+	{"robotomy request", &Intern::buildRobotomy},
+	{"presidential pardon", &Intern::buildPardon}
 };
 
-static AForm	*buildShrubbery(const std::string &target)
-{
-	return (new ShrubberyCreationForm(target));
-}
-
-static AForm	*buildRobotomy(const std::string &target)
-{
-	return (new RobotomyRequestForm(target));
-}
-
-static AForm	*buildPardon(const std::string &target)
-{
-	return (new PresidentialPardonForm(target));
-}
-
-static const FormBlueprint	g_catalog[] = {
-	{"shrubbery creation", &buildShrubbery},
-	{"robotomy request", &buildRobotomy},
-	{"presidential pardon", &buildPardon}
-};
-
-static const int	g_catalogSize = sizeof(g_catalog) / sizeof(g_catalog[0]);
+const int	Intern::_catalogSize =
+	sizeof(Intern::_catalog) / sizeof(Intern::_catalog[0]);
 
 Intern::Intern(void)
 {
@@ -73,6 +52,21 @@ Intern	&Intern::operator=(const Intern &other)
 	return (*this);
 }
 
+AForm	*Intern::buildShrubbery(const std::string &target) const
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm	*Intern::buildRobotomy(const std::string &target) const
+{
+	return (new RobotomyRequestForm(target));
+}
+
+AForm	*Intern::buildPardon(const std::string &target) const
+{
+	return (new PresidentialPardonForm(target));
+}
+
 /*
 ** Devolve um formulário novo do tipo pedido, já apontado para o alvo. Quem
 ** chamou fica responsável por destruí-lo. Se o nome não estiver no catálogo,
@@ -81,12 +75,12 @@ Intern	&Intern::operator=(const Intern &other)
 AForm	*Intern::makeForm(const std::string &formName,
 	const std::string &target) const
 {
-	for (int i = 0; i < g_catalogSize; i++)
+	for (int i = 0; i < _catalogSize; i++)
 	{
-		if (formName == g_catalog[i].name)
+		if (formName == _catalog[i].name)
 		{
 			std::cout << "Intern creates " << formName << std::endl;
-			return (g_catalog[i].build(target));
+			return ((this->*_catalog[i].build)(target));
 		}
 	}
 	std::cout << "Intern does not know any form called " << formName << "."

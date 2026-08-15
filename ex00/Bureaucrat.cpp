@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:19:44 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 09:12:05 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:20:29 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 const int	Bureaucrat::highestGrade = 1;
 const int	Bureaucrat::lowestGrade = 150;
 
-Bureaucrat::Bureaucrat(void) : _name("Anonymous"), _grade(lowestGrade)
+Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(lowestGrade)
 {
 }
 
@@ -25,8 +25,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade)
 	checkGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
-	: _name(other._name), _grade(other._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
 }
 
@@ -90,7 +89,6 @@ const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade "
-		<< bureaucrat.getGrade() << ".";
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return (out);
 }
