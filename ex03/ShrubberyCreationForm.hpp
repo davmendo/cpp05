@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 11:19:13 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/09 14:54:32 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:34:39 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 # include "AForm.hpp"
 
-/*
-** Ao ser executado, cria o arquivo <alvo>_shrubbery no diretório de trabalho
-** e desenha algumas árvores em ASCII dentro dele.
-*/
 class ShrubberyCreationForm : public AForm
 {
 	public:

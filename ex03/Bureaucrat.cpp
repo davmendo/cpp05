@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 10:31:09 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 11:01:13 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:33:58 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ Bureaucrat::Bureaucrat(void) : _name("Anonymous"), _grade(lowestGrade)
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade)
-	: _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
 	checkGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
-	: _name(other._name), _grade(other._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
 }
 
@@ -35,9 +33,6 @@ Bureaucrat::~Bureaucrat(void)
 {
 }
 
-/*
-** O nome é constante, portanto a atribuição só pode copiar a classificação.
-*/
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
@@ -67,10 +62,6 @@ void	Bureaucrat::decrementGrade(void)
 	_grade = _grade + 1;
 }
 
-/*
-** Pede ao formulário para ser assinado e relata o resultado. O motivo da
-** recusa vem da própria exceção lançada pelo formulário.
-*/
 void	Bureaucrat::signForm(AForm &form) const
 {
 	try
@@ -80,15 +71,10 @@ void	Bureaucrat::signForm(AForm &form) const
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << _name << " couldn't sign " << form.getName()
-			<< " because " << e.what() << "." << std::endl;
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
 
-/*
-** Mesma ideia da assinatura: o formulário decide se a execução é possível e o
-** burocrata apenas relata o desfecho.
-*/
 void	Bureaucrat::executeForm(const AForm &form) const
 {
 	try
@@ -98,15 +84,10 @@ void	Bureaucrat::executeForm(const AForm &form) const
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << _name << " couldn't execute " << form.getName()
-			<< " because " << e.what() << "." << std::endl;
+		std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
 
-/*
-** Um número menor que 1 significa uma classificação alta demais; um número
-** maior que 150 significa uma classificação baixa demais.
-*/
 void	Bureaucrat::checkGrade(int grade)
 {
 	if (grade < highestGrade)
@@ -127,7 +108,6 @@ const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade "
-		<< bureaucrat.getGrade() << ".";
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return (out);
 }

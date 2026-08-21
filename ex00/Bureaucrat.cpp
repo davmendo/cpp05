@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:19:44 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:20:29 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:43:49 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(lowestGrade)
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade)
-	: _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
 	checkGrade(grade);
 }
@@ -33,9 +32,6 @@ Bureaucrat::~Bureaucrat(void)
 {
 }
 
-/*
-** O nome é constante, portanto a atribuição só pode copiar a classificação.
-*/
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
@@ -66,8 +62,8 @@ void	Bureaucrat::decrementGrade(void)
 }
 
 /*
-** Um número menor que 1 significa uma classificação alta demais; um número
-** maior que 150 significa uma classificação baixa demais.
+** A number lower than 1 means the grade is too high
+** higher than 150 means the grade is too low.
 */
 void	Bureaucrat::checkGrade(int grade)
 {

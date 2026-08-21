@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 09:41:06 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:24:38 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 20:21:43 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ Bureaucrat::~Bureaucrat(void)
 {
 }
 
-/*
-** O nome é constante, portanto a atribuição só pode copiar a classificação.
-*/
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
@@ -66,10 +63,6 @@ void	Bureaucrat::decrementGrade(void)
 	_grade = _grade + 1;
 }
 
-/*
-** Pede ao formulário para ser assinado e relata o resultado. O motivo da
-** recusa vem da própria exceção lançada pelo formulário.
-*/
 void	Bureaucrat::signForm(Form &form) const
 {
 	try
@@ -83,10 +76,6 @@ void	Bureaucrat::signForm(Form &form) const
 	}
 }
 
-/*
-** Um número menor que 1 significa uma classificação alta demais; um número
-** maior que 150 significa uma classificação baixa demais.
-*/
 void	Bureaucrat::checkGrade(int grade)
 {
 	if (grade < highestGrade)

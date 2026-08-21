@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 11:07:53 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/21 13:22:29 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:28:01 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ static void	showTitle(const std::string &title)
 	std::cout << std::endl << "===== " << title << " =====" << std::endl;
 }
 
-/*
-** Percurso completo de um formulário: mostrar, assinar e executar.
-*/
 static void	handle(AForm &form, const Bureaucrat &signer, const Bureaucrat &executor)
 {
 	std::cout << form << std::endl;

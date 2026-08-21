@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 12:45:37 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:31:06 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:41:52 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include "AForm.hpp"
 
 /*
-** O estagiário não tem nome, classificação nem qualquer outra característica
-** própria. A única coisa que se espera dele é que saiba montar o formulário
-** certo a partir do nome pedido.
+** The intern has no name, rank, or any other defining characteristic.
+** The only thing expected is that they can assemble the correct form
+** based on the requested name.
 */
 class Intern
 {
@@ -36,10 +36,10 @@ class Intern
 
 	private:
 		/*
-		** Cada entrada do catálogo liga o nome de um formulário à função
-		** membro que sabe construí-lo. Assim makeForm() é uma única busca
-		** na tabela, e acrescentar um formulário novo custa apenas mais uma
-		** linha no catálogo.
+		** Each entry in the catalog maps a form name to the member function
+		** that knows how to build it. Thus, makeForm() is a single lookup
+		** in the table, and adding a new form costs only one more line in the
+		** catalog.
 		*/
 		typedef AForm	*(Intern::*FormBuilder)(const std::string &target) const;
 

@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 09:16:47 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/18 16:02:42 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:24:59 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ AForm::~AForm(void)
 {
 }
 
-/*
-** O nome e as duas exigências são constantes, portanto a atribuição só pode
-** copiar o estado da assinatura.
-*/
 AForm	&AForm::operator=(const AForm &other)
 {
 	if (this != &other)
@@ -64,10 +60,6 @@ int	AForm::getGradeToExecute(void) const
 	return (_gradeToExecute);
 }
 
-/*
-** Como 1 é a classificação mais alta, o burocrata só pode assinar quando o
-** número da sua classificação é menor ou igual ao exigido.
-*/
 void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSign)
@@ -75,10 +67,6 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 	_isSigned = true;
 }
 
-/*
-** As duas condições valem para qualquer formulário, por isso são verificadas
-** aqui uma única vez antes de delegar a ação à classe concreta.
-*/
 void	AForm::execute(const Bureaucrat &executor) const
 {
 	if (!_isSigned)

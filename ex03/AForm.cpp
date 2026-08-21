@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 11:02:58 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 11:09:36 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:30:35 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,17 @@
 const int	AForm::highestGrade = 1;
 const int	AForm::lowestGrade = 150;
 
-AForm::AForm(void)
-	: _name("untitled"), _isSigned(false), _gradeToSign(lowestGrade),
-	  _gradeToExecute(lowestGrade)
+AForm::AForm(void) : _name("untitled"), _isSigned(false), _gradeToSign(lowestGrade), _gradeToExecute(lowestGrade)
 {
 }
 
-AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign),
-	  _gradeToExecute(gradeToExecute)
+AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	checkGrade(gradeToSign);
 	checkGrade(gradeToExecute);
 }
 
-AForm::AForm(const AForm &other)
-	: _name(other._name), _isSigned(other._isSigned),
-	  _gradeToSign(other._gradeToSign),
-	  _gradeToExecute(other._gradeToExecute)
+AForm::AForm(const AForm &other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
 }
 
@@ -40,10 +33,6 @@ AForm::~AForm(void)
 {
 }
 
-/*
-** O nome e as duas exigências são constantes, portanto a atribuição só pode
-** copiar o estado da assinatura.
-*/
 AForm	&AForm::operator=(const AForm &other)
 {
 	if (this != &other)
@@ -71,10 +60,6 @@ int	AForm::getGradeToExecute(void) const
 	return (_gradeToExecute);
 }
 
-/*
-** Como 1 é a classificação mais alta, o burocrata só pode assinar quando o
-** número da sua classificação é menor ou igual ao exigido.
-*/
 void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSign)
@@ -82,10 +67,6 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 	_isSigned = true;
 }
 
-/*
-** As duas condições valem para qualquer formulário, por isso são verificadas
-** aqui uma única vez antes de delegar a ação à classe concreta.
-*/
 void	AForm::execute(const Bureaucrat &executor) const
 {
 	if (!_isSigned)

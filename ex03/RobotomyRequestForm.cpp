@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 12:01:29 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 11:26:27 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:37:10 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 #include "RobotomyRequestForm.hpp"
 
-/*
-** Sorteia o desfecho da perfuração, com 50% de chance para cada lado. A
-** semente é preparada na primeira chamada para que o formulário não dependa
-** de nenhuma preparação externa.
-*/
 static bool	drillSucceeds(void)
 {
 	static bool	seeded = false;
@@ -32,18 +27,15 @@ static bool	drillSucceeds(void)
 	return (std::rand() % 2 == 0);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(void)
-	: AForm("RobotomyRequestForm", 72, 45), _target("target")
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45), _target("target")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-	: AForm(other), _target(other._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), _target(other._target)
 {
 }
 

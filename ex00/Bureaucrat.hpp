@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:03:17 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/06 15:11:29 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 20:00:06 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <string>
 
 /*
-** Um burocrata tem um nome imutável e uma classificação que vai de 1 (a mais
-** alta) até 150 (a mais baixa). Promover um burocrata diminui o número da
-** classificação; rebaixar aumenta.
+** A bureaucrat has an immutable name and a grade that ranges from 1 (the
+** highest) to 150 (the lowest). Promoting a bureaucrat decreases the grade
+** number, while demoting increases it.
 */
 class Bureaucrat
 {

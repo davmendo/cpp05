@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 08:47:39 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:20:01 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:27:44 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ Bureaucrat::~Bureaucrat(void)
 {
 }
 
-/*
-** O nome é constante, portanto a atribuição só pode copiar a classificação.
-*/
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
@@ -67,10 +64,6 @@ void	Bureaucrat::decrementGrade(void)
 	_grade = _grade + 1;
 }
 
-/*
-** Pede ao formulário para ser assinado e relata o resultado. O motivo da
-** recusa vem da própria exceção lançada pelo formulário.
-*/
 void	Bureaucrat::signForm(AForm &form) const
 {
 	try
@@ -80,15 +73,10 @@ void	Bureaucrat::signForm(AForm &form) const
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << _name << " couldn't sign " << form.getName()
-			<< " because " << e.what() << "." << std::endl;
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
 
-/*
-** Mesma ideia da assinatura: o formulário decide se a execução é possível e o
-** burocrata apenas relata o desfecho.
-*/
 void	Bureaucrat::executeForm(const AForm &form) const
 {
 	try
@@ -98,15 +86,10 @@ void	Bureaucrat::executeForm(const AForm &form) const
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << _name << " couldn't execute " << form.getName()
-			<< " because " << e.what() << "." << std::endl;
+		std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
 
-/*
-** Um número menor que 1 significa uma classificação alta demais; um número
-** maior que 150 significa uma classificação baixa demais.
-*/
 void	Bureaucrat::checkGrade(int grade)
 {
 	if (grade < highestGrade)

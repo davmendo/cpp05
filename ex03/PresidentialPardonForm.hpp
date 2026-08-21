@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 12:16:52 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/09 15:26:38 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:37:14 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 # include "AForm.hpp"
 
-/*
-** Ao ser executado, anuncia que o alvo foi perdoado por Zaphod Beeblebrox.
-*/
 class PresidentialPardonForm : public AForm
 {
 	public:

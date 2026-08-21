@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 11:48:06 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/09 15:10:45 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:36:37 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 
 # include "AForm.hpp"
 
-/*
-** Ao ser executado, faz barulho de perfuração e robotomiza o alvo. A operação
-** só dá certo em metade das tentativas.
-*/
 class RobotomyRequestForm : public AForm
 {
 	public:

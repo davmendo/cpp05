@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 10:18:49 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:22:52 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 20:02:49 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ Form::~Form(void)
 {
 }
 
-/*
-** O nome e as duas exigências são constantes, portanto a atribuição só pode
-** copiar o estado da assinatura.
-*/
 Form	&Form::operator=(const Form &other)
 {
 	if (this != &other)
@@ -64,10 +60,6 @@ int	Form::getGradeToExecute(void) const
 	return (_gradeToExecute);
 }
 
-/*
-** Como 1 é a classificação mais alta, o burocrata só pode assinar quando o
-** número da sua classificação é menor ou igual ao exigido.
-*/
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSign)
@@ -95,9 +87,6 @@ const char	*Form::GradeTooLowException::what(void) const throw()
 
 std::ostream	&operator<<(std::ostream &out, const Form &form)
 {
-	out << "form " << form.getName() << ", "
-		<< (form.getIsSigned() ? "signed" : "unsigned")
-		<< ", requires grade " << form.getGradeToSign() << " to sign and "
-		<< form.getGradeToExecute() << " to execute.";
+	out << "form " << form.getName() << ", " << (form.getIsSigned() ? "signed" : "unsigned") << ", requires grade " << form.getGradeToSign() << " to sign and " << form.getGradeToExecute() << " to execute.";
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 13:24:48 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 11:58:40 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:41:07 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int	main(void)
 	std::cout << std::endl;
 	delegate(someRandomIntern, "robotomy request", "Bender", president);
 	std::cout << std::endl;
-	delegate(someRandomIntern, "presidential pardon", "Arthur Dent",
-		president);
+	delegate(someRandomIntern, "presidential pardon", "Arthur Dent", president);
 
 	showTitle("Names the intern does not know");
 	delegate(someRandomIntern, "coffee request", "kitchen", president);

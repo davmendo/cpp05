@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 10:44:12 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 09:47:26 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:21:11 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ static void	draftForm(const std::string &name, int gradeToSign,
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << "refused -> " << name << ": " << e.what() << "."
-			<< std::endl;
+		std::cout << "refused -> " << name << ": " << e.what() << "." << std::endl;
 	}
 }
 

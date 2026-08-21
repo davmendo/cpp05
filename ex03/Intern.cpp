@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 13:01:04 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:33:49 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:43:21 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include "ShrubberyCreationForm.hpp"
 
 /*
-** O catálogo: cada nome de formulário apontando para a função membro que sabe
-** construí-lo. Acrescentar um formulário novo custa apenas mais uma linha.
+** The catalog: each form name points to the member function that knows
+** how to build it. Adding a new form costs just one more line.
 */
 const Intern::FormBlueprint	Intern::_catalog[] = {
 	{"shrubbery creation", &Intern::buildShrubbery},
@@ -27,8 +27,7 @@ const Intern::FormBlueprint	Intern::_catalog[] = {
 	{"presidential pardon", &Intern::buildPardon}
 };
 
-const int	Intern::_catalogSize =
-	sizeof(Intern::_catalog) / sizeof(Intern::_catalog[0]);
+const int	Intern::_catalogSize = sizeof(Intern::_catalog) / sizeof(Intern::_catalog[0]);
 
 Intern::Intern(void)
 {
@@ -43,9 +42,6 @@ Intern::~Intern(void)
 {
 }
 
-/*
-** Um estagiário é igual ao outro: não há estado nenhum para copiar.
-*/
 Intern	&Intern::operator=(const Intern &other)
 {
 	(void)other;
@@ -68,9 +64,9 @@ AForm	*Intern::buildPardon(const std::string &target) const
 }
 
 /*
-** Devolve um formulário novo do tipo pedido, já apontado para o alvo. Quem
-** chamou fica responsável por destruí-lo. Se o nome não estiver no catálogo,
-** avisa e devolve NULL.
+** Returns a new form of the requested type, already pointing to the target. The
+** caller is responsible for destroying it. If the name is not in the catalog,
+** prints a warning and returns NULL.
 */
 AForm	*Intern::makeForm(const std::string &formName,
 	const std::string &target) const
@@ -83,7 +79,6 @@ AForm	*Intern::makeForm(const std::string &formName,
 			return ((this->*_catalog[i].build)(target));
 		}
 	}
-	std::cout << "Intern does not know any form called " << formName << "."
-		<< std::endl;
+	std::cout << "Intern does not know any form called " << formName << "." << std::endl;
 	return (NULL);
 }

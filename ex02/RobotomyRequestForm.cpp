@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 10:14:05 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/19 14:16:34 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:28:43 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include "RobotomyRequestForm.hpp"
 
 /*
-** Sorteia o desfecho da perfuração, com 50% de chance para cada lado. A
-** semente é preparada na primeira chamada para que o formulário não dependa
-** de nenhuma preparação externa.
+** Randomly determines the outcome of the drilling, with a 50% chance for each
+** outcome. The seed is prepared on the first call so that the form does not
+** depend on any external preparation.
 */
 static bool	drillSucceeds(void)
 {

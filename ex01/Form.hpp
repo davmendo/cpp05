@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 10:02:35 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/07 11:47:22 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 20:03:16 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # include "Bureaucrat.hpp"
 
 /*
-** Um formulário nasce sem assinatura e guarda duas exigências constantes: a
-** classificação mínima para ser assinado e a classificação mínima para ser
-** executado. Ambas seguem a mesma escala do burocrata (1 é a mais alta).
+** A form is created unsigned and stores two constant requirements: the
+** minimum grade required to sign it and the minimum grade required to
+** execute it. Both follow the same scale as the bureaucrat (1 is the
+** highest).
 */
 class Form
 {

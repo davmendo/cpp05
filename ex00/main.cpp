@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:38:02 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 09:20:38 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 20:01:09 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ static void	hire(const std::string &name, int grade)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << "refused -> " << name << ": " << e.what() << "."
-			<< std::endl;
+		std::cout << "refused -> " << name << ": " << e.what() << "." << std::endl;
 	}
 }
 
@@ -41,8 +40,7 @@ static void	promote(Bureaucrat &bureaucrat)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << "promotion denied -> " << bureaucrat.getName() << ": "
-			<< e.what() << "." << std::endl;
+		std::cout << "promotion denied -> " << bureaucrat.getName() << ": " << e.what() << "." << std::endl;
 	}
 }
 
@@ -55,8 +53,7 @@ static void	demote(Bureaucrat &bureaucrat)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << "demotion denied -> " << bureaucrat.getName() << ": "
-			<< e.what() << "." << std::endl;
+		std::cout << "demotion denied -> " << bureaucrat.getName() << ": " << e.what() << "." << std::endl;
 	}
 }
 
@@ -94,8 +91,7 @@ int	main(void)
 	std::cout << "original -> " << original << std::endl;
 	std::cout << "copy     -> " << copied << std::endl;
 	std::cout << "assigned -> " << assigned << std::endl;
-	std::cout << "the name is constant, so assignment only copies the grade"
-		<< std::endl;
+	std::cout << "the name is constant, so assignment only copies the grade" << std::endl;
 
 	return (0);
 }

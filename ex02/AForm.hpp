@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 09:03:22 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/08 12:23:16 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 21:27:07 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include "Bureaucrat.hpp"
 
 /*
-** Base abstrata de todos os formulários. Ela guarda o nome, o estado da
-** assinatura e as duas exigências constantes, e concentra as verificações de
-** execução: quem chama execute() só passa adiante se o formulário estiver
-** assinado e se o executor tiver classificação suficiente. A ação em si fica
-** por conta de cada formulário concreto, em executeAction().
+** Abstract base of all forms. It stores the name, the signed state, and the
+** two constant requirements, and centralizes the execution checks: whoever
+** calls execute() only proceeds if the form is signed and the executor has
+** a sufficient grade. The action itself is handled by each concrete form in
+** executeAction().
 */
 class AForm
 {

@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 09:26:51 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/07 11:32:18 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/21 20:02:09 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
 
 class Form;
 
-/*
-** Um burocrata tem um nome imutável e uma classificação que vai de 1 (a mais
-** alta) até 150 (a mais baixa). Promover um burocrata diminui o número da
-** classificação; rebaixar aumenta.
-*/
 class Bureaucrat
 {
 	public:
