@@ -6,25 +6,21 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 10:42:26 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 10:36:22 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/18 16:06:13 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void)
-	: AForm("PresidentialPardonForm", 25, 5), _target("target")
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5), _target("target")
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
-	: AForm("PresidentialPardonForm", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(
-	const PresidentialPardonForm &other)
-	: AForm(other), _target(other._target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), _target(other._target)
 {
 }
 
@@ -32,8 +28,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 {
 }
 
-PresidentialPardonForm	&PresidentialPardonForm::operator=(
-	const PresidentialPardonForm &other)
+PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
 	if (this != &other)
 	{
@@ -50,6 +45,5 @@ const std::string	&PresidentialPardonForm::getTarget(void) const
 
 void	PresidentialPardonForm::executeAction(void) const
 {
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox."
-		<< std::endl;
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

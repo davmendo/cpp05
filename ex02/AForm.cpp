@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 09:16:47 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/15 17:23:42 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/18 16:02:42 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 const int	AForm::highestGrade = 1;
 const int	AForm::lowestGrade = 150;
 
-AForm::AForm(void)
-	: _name("untitled"), _isSigned(false), _gradeToSign(lowestGrade),
-	  _gradeToExecute(lowestGrade)
+AForm::AForm(void) : _name("untitled"), _isSigned(false), _gradeToSign(lowestGrade), _gradeToExecute(lowestGrade)
 {
 }
 

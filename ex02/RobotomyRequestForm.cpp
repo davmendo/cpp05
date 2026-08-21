@@ -6,7 +6,7 @@
 /*   By: davmendo <davmendo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 10:14:05 by davmendo          #+#    #+#             */
-/*   Updated: 2026/08/10 10:27:58 by davmendo         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:16:34 by davmendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,15 @@ static bool	drillSucceeds(void)
 	return (std::rand() % 2 == 0);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(void)
-	: AForm("RobotomyRequestForm", 72, 45), _target("target")
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45), _target("target")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-	: AForm(other), _target(other._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), _target(other._target)
 {
 }
 
@@ -71,8 +68,7 @@ void	RobotomyRequestForm::executeAction(void) const
 {
 	std::cout << "Vrrrum... vrrrum... the drill keeps spinning." << std::endl;
 	if (drillSucceeds())
-		std::cout << _target << " has been robotomized successfully."
-			<< std::endl;
+		std::cout << _target << " has been robotomized successfully." << std::endl;
 	else
 		std::cout << "the robotomy of " << _target << " failed." << std::endl;
 }
